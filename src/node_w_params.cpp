@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     }
   else
     {
-      ROS_ERROR("Failed to get param 'my_param'");
+      ROS_ERROR("Failed to get param 'param1'");
     }
   }
   return 0;
