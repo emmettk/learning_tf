@@ -38,10 +38,12 @@ int main(int argc, char** argv){
     }
     */
     //Better version using waitForTransform
-    //Modified to have turtle2 chase carrot1 rather than turtle1
+    //Can be modified to have turtle2 chase carrot1 rather than turtle1
     try {
-      listener.waitForTransform("/turtle2", "/carrot1", ros::Time(0), ros::Duration(10.0) );
-      listener.lookupTransform("/turtle2", "/carrot1", ros::Time(0), transform);
+      //set "now" to be a specific "now" so we can use the same value twice
+      ros::Time now = ros::Time::now();
+      listener.waitForTransform("/turtle2", "/turtle1", now, ros::Duration(10.0) );
+      listener.lookupTransform("/turtle2", "/turtle1",now, transform);
     } catch (tf::TransformException ex) {
       ROS_ERROR("%s",ex.what());
     }
