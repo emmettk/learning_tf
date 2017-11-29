@@ -1,0 +1,9 @@
+<launch>
+	<!-- set parameters -->
+	<param name="param1" value="This_is_a_parameter" type="string"/>
+
+	<!-- make a node -->
+	<node pkg="learning_tf" type="node_w_params" args="/node1" name="node_w_params" />
+
+
+</launch>
