@@ -42,8 +42,10 @@ int main(int argc, char** argv){
     try {
       //set "now" to be a specific "now" so we can use the same value twice
       ros::Time now = ros::Time::now();
-      listener.waitForTransform("/turtle2", "/turtle1", now, ros::Duration(10.0) );
-      listener.lookupTransform("/turtle2", "/turtle1",now, transform);
+      //Set a time in the past (duration takes seconds as arg)
+      ros::Time past = ros::Time::now() - ros::Duration(5.0);
+      listener.waitForTransform("/turtle2", "/turtle1", past, ros::Duration(10.0) );
+      listener.lookupTransform("/turtle2", "/turtle1",past, transform);
     } catch (tf::TransformException ex) {
       ROS_ERROR("%s",ex.what());
     }
